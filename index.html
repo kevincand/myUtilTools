@@ -17,8 +17,8 @@
   </header>
   <main>
   <div class="tab-menu">
-    <button onclick="showTab('texto')">Conversão de Texto</button>
-    <button onclick="showTab('morse')">Código Morse</button>
+    <button class="active" data-tab="texto" onclick="showTab('texto')">Conversão de Texto</button>
+    <button data-tab="morse" onclick="showTab('morse')">Código Morse</button>
   </div>
 
   <section id="tab-texto" class="tab-content">
@@ -31,7 +31,7 @@
     </div>
   </section>
 
-  <section id="tab-morse" class="tab-content" style="display:none;">
+  <section id="tab-morse" class="tab-content" style="display: none;">
     <textarea id="morse-input" placeholder="Digite o texto ou código morse..."></textarea>
     <div class="buttons">
       <button onclick="toMorse()">Texto → Morse</button>

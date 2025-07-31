@@ -31,8 +31,14 @@ function toCamelCase() {
   textarea.value = camelCaseText;
 }
 function showTab(tab) {
+  // Alternar exibição das seções
   document.getElementById("tab-texto").style.display = tab === 'texto' ? 'block' : 'none';
   document.getElementById("tab-morse").style.display = tab === 'morse' ? 'block' : 'none';
+
+  // Alternar classe 'active' nos botões
+  const buttons = document.querySelectorAll('.tab-menu button');
+  buttons.forEach(btn => btn.classList.remove('active'));
+  document.querySelector(`.tab-menu button[data-tab="${tab}"]`).classList.add('active');
 }
 const morseCodeMap = {
   A: '.-', B: '-...', C: '-.-.', D: '-..', E: '.', F: '..-.',

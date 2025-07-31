@@ -16,6 +16,12 @@
     </nav>
   </header>
   <main>
+  <div class="tab-menu">
+    <button onclick="showTab('texto')">Conversão de Texto</button>
+    <button onclick="showTab('morse')">Código Morse</button>
+  </div>
+
+  <section id="tab-texto" class="tab-content">
     <textarea id="texto" placeholder="Digite ou cole seu texto aqui..."></textarea>
     <div class="buttons">
       <button onclick="toUppercase()">MAIÚSCULAS</button>
@@ -23,7 +29,16 @@
       <button onclick="capitalizeWords()">Capitalizar Palavras</button>
       <button onclick="toCamelCase()">camelCase</button>
     </div>
-  </main>
+  </section>
+
+  <section id="tab-morse" class="tab-content" style="display:none;">
+    <textarea id="morse-input" placeholder="Digite o texto ou código morse..."></textarea>
+    <div class="buttons">
+      <button onclick="toMorse()">Texto → Morse</button>
+      <button onclick="fromMorse()">Morse → Texto</button>
+    </div>
+  </section>
+</main>
   <footer>
     <p>Feito com ❤️ por <a href="https://github.com/kevincand" target="_blank">@kevincand</a></p>
     <p>Mantenha-se criativo e continue aprendendo!</p>

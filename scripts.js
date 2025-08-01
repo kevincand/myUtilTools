@@ -56,6 +56,12 @@ const reverseMorseCodeMap = Object.fromEntries(
   Object.entries(morseCodeMap).map(([k, v]) => [v, k])
 );
 
+function removeExtraSpaces() {
+  const textarea = document.getElementById("texto");
+  textarea.value = textarea.value.replace(/\s+/g, ' ').trim();
+}
+
+// Funções para aba de Cifras e Traduções
 function toMorse() {
   const input = document.getElementById("translate-input").value.toUpperCase();
   const output = input.split('').map(char => morseCodeMap[char] || '').join(' ');

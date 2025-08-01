@@ -57,13 +57,36 @@ const reverseMorseCodeMap = Object.fromEntries(
 );
 
 function toMorse() {
-  const input = document.getElementById("morse-input").value.toUpperCase();
+  const input = document.getElementById("translate-input").value.toUpperCase();
   const output = input.split('').map(char => morseCodeMap[char] || '').join(' ');
-  document.getElementById("morse-input").value = output;
+  document.getElementById("translate-input").value = output;
 }
 
 function fromMorse() {
-  const input = document.getElementById("morse-input").value.trim();
+  const input = document.getElementById("translate-input").value.trim();
   const output = input.split(' ').map(code => reverseMorseCodeMap[code] || '').join('');
-  document.getElementById("morse-input").value = output;
+  document.getElementById("translate-input").value = output;
+}
+function caesarCipher() {
+  const input = document.getElementById("translate-input").value;
+  const shift = parseInt(document.getElementById("cesar-shift").value);
+
+  if (isNaN(shift)) {
+    alert("Informe um número válido para o deslocamento.");
+    return;
+  }
+
+  const output = input.split('').map(char => {
+    const code = char.charCodeAt(0);
+
+    if (char >= 'a' && char <= 'z') {
+      return String.fromCharCode(((code - 97 + shift + 26) % 26) + 97);
+    } else if (char >= 'A' && char <= 'Z') {
+      return String.fromCharCode(((code - 65 + shift + 26) % 26) + 65);
+    } else {
+      return char;
+    }
+  }).join('');
+
+  document.getElementById("translate-input").value = output;
 }

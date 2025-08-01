@@ -33,7 +33,7 @@ function toCamelCase() {
 function showTab(tab) {
   // Alternar exibição das seções
   document.getElementById("tab-texto").style.display = tab === 'texto' ? 'block' : 'none';
-  document.getElementById("tab-morse").style.display = tab === 'morse' ? 'block' : 'none';
+  document.getElementById("tab-translate").style.display = tab === 'translate' ? 'block' : 'none';
 
   // Alternar classe 'active' nos botões
   const buttons = document.querySelectorAll('.tab-menu button');

@@ -96,3 +96,39 @@ function caesarCipher() {
 
   document.getElementById("translate-input").value = output;
 }
+
+function vigenereCipher(encode = true) {
+  const input = document.getElementById("translate-input").value;
+  const key = document.getElementById("vigenere-key").value;
+
+  if (!key.match(/^[a-zA-Z]+$/)) {
+    alert("A chave deve conter apenas letras.");
+    return;
+  }
+
+  const cleanedKey = key.toUpperCase();
+  let result = '';
+  let keyIndex = 0;
+
+  for (let i = 0; i < input.length; i++) {
+    const char = input[i];
+    const isUpper = char >= 'A' && char <= 'Z';
+    const isLower = char >= 'a' && char <= 'z';
+
+    if (isUpper || isLower) {
+      const base = isUpper ? 65 : 97;
+      const shift = cleanedKey.charCodeAt(keyIndex % cleanedKey.length) - 65;
+      const code = char.charCodeAt(0) - base;
+      const shifted = encode
+        ? (code + shift) % 26
+        : (code - shift + 26) % 26;
+
+      result += String.fromCharCode(shifted + base);
+      keyIndex++;
+    } else {
+      result += char; // mantém pontuação e espaços
+    }
+  }
+
+  document.getElementById("translate-input").value = result;
+}

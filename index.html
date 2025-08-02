@@ -25,9 +25,9 @@
     <div class="buttons">
       <button onclick="toUppercase()">MAIÚSCULAS</button>
       <button onclick="toLowercase()">minúsculas</button>
-      <button onclick="capitalizeWords()">Capitalizar Palavras</button>
+      <button title="Primeira letra maiúscula de cada palavra" onclick="capitalizeWords()">Capitalizar Palavras</button>
       <button onclick="toCamelCase()">camelCase</button>
-      <button onclick="removeExtraSpaces()">Remover Espaços</button>
+      <button title="Remover espaços duplicados" onclick="removeExtraSpaces()">RemoDupEspacos</button>
     </div>
   </section>
 
@@ -45,6 +45,13 @@
       <button onclick="caesarCipher()">Aplicar Cifra de César</button>
       <label for="cesar-shift">Deslocamento:</label>
       <input type="number" id="cesar-shift" value="3" style="width: 60px; margin: 0 0.5rem;">
+    </div>
+    <div class="buttons">
+      <h3 style="margin-bottom: 0.5rem;">Cifra de Vigenère</h3>
+      <label for="vigenere-key">Chave:</label>
+      <input type="text" id="vigenere-key" placeholder="ex: SEGREDO" style="margin: 0 0.5rem;">
+      <button onclick="vigenereCipher(true)">Codificar</button>
+      <button onclick="vigenereCipher(false)">Decodificar</button>
     </div>
   </section>
 

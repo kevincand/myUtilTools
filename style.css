@@ -107,3 +107,13 @@ footer a {
   border-bottom-right-radius: 6px;
   background-color: #fff;
 }
+
+.contador {
+  margin-top: 15px;
+  font-size: 0.9em;
+  color: #444;
+  line-height: 1.4;
+}
+.contador p {
+  margin: 2px 0;
+}

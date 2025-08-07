@@ -29,6 +29,12 @@
       <button onclick="toCamelCase()">camelCase</button>
       <button title="Remover espaços duplicados" onclick="removeExtraSpaces()">RemoDupEspacos</button>
     </div>
+    <div id="contador" class="contador">
+  <p>Palavras: <span id="countPalavras">0</span></p>
+  <p>Caracteres (com espaços): <span id="countCaracteres">0</span></p>
+  <p>Caracteres (sem espaços): <span id="countSemEspacos">0</span></p>
+  <p>Linhas: <span id="countLinhas">0</span></p>
+</div>
   </section>
 
   <section id="tab-translate" class="tab-content" style="display: none;">
@@ -52,7 +58,6 @@
       <input type="text" id="vigenere-key" placeholder="ex: SEGREDO" style="margin: 0 0.5rem;">
       <button onclick="vigenereCipher(true)">Codificar</button>
       <button onclick="vigenereCipher(false)">Decodificar</button>
-    </div>
   </section>
 
 </main>

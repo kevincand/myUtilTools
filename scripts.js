@@ -61,6 +61,29 @@ function removeExtraSpaces() {
   textarea.value = textarea.value.replace(/\s+/g, ' ').trim();
 }
 
+function atualizarContador() {
+  const texto = document.getElementById("texto").value;
+
+  // Contar palavras (sem contar espaços extras)
+  const palavras = texto.trim().split(/\s+/).filter(Boolean).length;
+
+  // Caracteres com e sem espaços
+  const caracteres = texto.length;
+  const semEspacos = texto.replace(/\s/g, "").length;
+
+  // Contar linhas
+  const linhas = texto.split(/\n/).length;
+
+  // Atualiza os elementos do contador
+  document.getElementById("countPalavras").textContent = palavras;
+  document.getElementById("countCaracteres").textContent = caracteres;
+  document.getElementById("countSemEspacos").textContent = semEspacos;
+  document.getElementById("countLinhas").textContent = linhas;
+}
+
+// Ativa contador ao digitar
+document.getElementById("texto").addEventListener("input", atualizarContador);
+
 // Funções para aba de Cifras e Traduções
 function toMorse() {
   const input = document.getElementById("translate-input").value.toUpperCase();

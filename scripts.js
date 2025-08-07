@@ -155,3 +155,25 @@ function vigenereCipher(encode = true) {
 
   document.getElementById("translate-input").value = result;
 }
+
+function toBase64() {
+  const textarea = document.getElementById("translate-input");
+  try {
+    const texto = textarea.value;
+    const base64 = btoa(unescape(encodeURIComponent(texto)));
+    textarea.value = base64;
+  } catch (e) {
+    alert("Erro ao codificar em Base64.");
+  }
+}
+
+function fromBase64() {
+  const textarea = document.getElementById("translate-input");
+  try {
+    const texto = textarea.value;
+    const decodificado = decodeURIComponent(escape(atob(texto)));
+    textarea.value = decodificado;
+  } catch (e) {
+    alert("Texto inválido para decodificar de Base64.");
+  }
+}

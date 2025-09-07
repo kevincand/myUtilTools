@@ -9,10 +9,15 @@
 </head>
 <body>
   <header>
-    <h1 >Conversor de Texto</h1>
-    <nav onclick="showTab('translate')">
-      <a href="#">Ver Cifras e Traduções</a>
-    </nav>
+    <h1>Ferramentas de Texto</h1>
+    <div class="menu-container">
+      <button class="menu-btn">☰ Menu</button>
+      <div class="menu-dropdown">
+        <a href="#" onclick="showTab('texto')">Conversão de Texto</a>
+        <a href="#" onclick="showTab('translate')">Cifras e Traduções</a>
+        <a href="#" onclick="showTab('normalizacao')">Normalização de Texto</a>
+      </div>
+    </div>
   </header>
   <main>
   <div class="tab-menu">

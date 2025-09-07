@@ -117,3 +117,59 @@ footer a {
 .contador p {
   margin: 2px 0;
 }
+
+/* Estilos do menu dropdown  */
+/* Menu container */
+.menu-container {
+  position: relative;
+  display: inline-block;
+}
+
+/* Botão do menu */
+.menu-btn {
+  background: #f4f4f4;
+  border: none;
+  padding: 8px 12px;
+  font-size: 14px;
+  border-radius: 6px;
+  cursor: pointer;
+  transition: background 0.2s;
+}
+
+.menu-btn:hover {
+  background: #e0e0e0;
+}
+
+/* Dropdown escondido */
+.menu-dropdown {
+  display: none;
+  position: absolute;
+  right: 0;
+  margin-top: 5px;
+  background: white;
+  border: 1px solid #ddd;
+  border-radius: 6px;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+  min-width: 180px;
+  z-index: 10;
+}
+
+/* Itens do menu */
+.menu-dropdown a {
+  display: block;
+  padding: 10px 15px;
+  font-size: 14px;
+  text-decoration: none;
+  color: #333;
+  transition: background 0.2s;
+}
+
+.menu-dropdown a:hover {
+  background: #f4f4f4;
+  border-radius: 6px;
+}
+
+/* Mostrar menu quando ativo */
+.menu-container.show .menu-dropdown {
+  display: block;
+}

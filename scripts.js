@@ -228,3 +228,20 @@ function clearFormatting() {
   editor.style.fontFamily = "inherit";
   editor.style.fontSize = "12px"; // reset padrão
 }
+
+// Toggle do menu
+document.addEventListener("DOMContentLoaded", () => {
+  const menuBtn = document.querySelector(".menu-btn");
+  const menuContainer = document.querySelector(".menu-container");
+
+  menuBtn.addEventListener("click", () => {
+    menuContainer.classList.toggle("show");
+  });
+
+  // Fecha o menu se clicar fora
+  document.addEventListener("click", (e) => {
+    if (!menuContainer.contains(e.target)) {
+      menuContainer.classList.remove("show");
+    }
+  });
+});

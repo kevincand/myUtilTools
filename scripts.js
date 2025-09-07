@@ -34,6 +34,7 @@ function showTab(tab) {
   // Alternar exibição das seções
   document.getElementById("tab-texto").style.display = tab === 'texto' ? 'block' : 'none';
   document.getElementById("tab-translate").style.display = tab === 'translate' ? 'block' : 'none';
+  document.getElementById("tab-normalizacao").style.display = tab === 'normalizacao' ? 'block' : 'none';
 
   // Alternar classe 'active' nos botões
   const buttons = document.querySelectorAll('.tab-menu button');
@@ -176,4 +177,54 @@ function fromBase64() {
   } catch (e) {
     alert("Texto inválido para decodificar de Base64.");
   }
+}
+// Funções para aba de normalização de texto
+// Pega referência ao textarea
+const editor = document.getElementById("editor");
+
+// --- FONTES ---
+function setFont(fontName) {
+  editor.style.fontFamily = fontName;
+}
+
+// --- TAMANHO ---
+function applyFontSize() {
+  const size = document.getElementById("font-size-input").value || 12;
+  const verifiedSize = size >= 2 && size <= 78 ? size : 12;
+  editor.style.fontSize = verifiedSize + "px";
+}
+
+// --- ESTILOS ---
+function formatText(style) {
+  switch (style) {
+    case 'bold':
+      toggleStyle("fontWeight", "bold", "normal");
+      break;
+    case 'italic':
+      toggleStyle("fontStyle", "italic", "normal");
+      break;
+    case 'underline':
+      toggleStyle("textDecoration", "underline", "none");
+      break;
+    case 'strikeThrough':
+      toggleStyle("textDecoration", "line-through", "none");
+      break;
+  }
+}
+
+function toggleStyle(property, valueOn, valueOff) {
+  if (editor.style[property] === valueOn) {
+    editor.style[property] = valueOff;
+  } else {
+    editor.style[property] = valueOn;
+  }
+}
+
+// --- LIMPAR FORMATAÇÃO ---
+function clearFormatting() {
+  editor.style.fontWeight = "normal";
+  editor.style.fontStyle = "normal";
+  editor.style.textDecoration = "none";
+  editor.style.fontFamily = "inherit";
+  editor.style.fontSize = "12px"; // reset padrão
 }

@@ -18,6 +18,7 @@
   <div class="tab-menu">
     <button class="active" data-tab="texto" onclick="showTab('texto')">Conversão de Texto</button>
     <button data-tab="translate" onclick="showTab('translate')">Cifras e Traduções</button>
+    <button data-tab="normalizacao" onclick="showTab('normalizacao')">Normalização</button>
   </div>
 
   <section id="tab-texto" class="tab-content">
@@ -65,6 +66,28 @@
       <button onclick="fromBase64()">Decodificar Base64</button>
     </div>
   </section>
+
+  <section id="tab-normalizacao" class="tab-content" style="display: none;">
+  <!-- Normalização de Texto -->
+  <textarea id="editor" placeholder="Cole ou digite seu texto aqui..."></textarea>
+  <div class="buttons">
+    <h3 style="margin-bottom: 0.5rem;">Fonte</h3>
+    <button onclick="setFont('Arial')">Arial</button>
+    <button onclick="setFont('Times New Roman')">Times</button>
+    <button onclick="setFont('Courier New')">Courier</button>
+    <label for="font-size-input">Font-size:</label>
+    <input type="number" id="font-size-input" value="12" min="2" max="78" style="width: 42px;">
+    <button onclick="applyFontSize()">Aplicar Tamanho</button>
+  </div>
+  <div class="buttons">
+    <h3 style="margin-bottom: 0.5rem;">Estilo</h3>
+    <button onclick="formatText('bold')" style="font-weight:bold;">Negrito</button>
+    <button onclick="formatText('italic')" style="font-style:italic;">Itálico</button>
+    <button onclick="formatText('underline')" style="text-decoration:underline;">Sublinhado</button>
+    <button onclick="formatText('strikeThrough')" style="text-decoration:line-through;">Riscado</button>
+    <button onclick="clearFormatting()">Limpar Formatação</button>
+  </div>
+</section>
 
 </main>
   <footer>

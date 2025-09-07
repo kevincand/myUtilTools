@@ -173,3 +173,31 @@ footer a {
 .menu-container.show .menu-dropdown {
   display: block;
 }
+
+.social-links {
+  margin-top: 10px;
+}
+
+.social-links a {
+  margin: 0 8px;
+  color: #333;
+  text-decoration: none;
+  transition: transform 0.2s, color 0.2s;
+}
+
+.social-links a:hover {
+  transform: scale(1.1);
+}
+
+/* Cores oficiais */
+.social-links a.github:hover {
+  color: #000;
+}
+
+.social-links a.instagram:hover {
+  color: #E4405F;
+}
+
+.social-links a.linkedin:hover {
+  color: #0077B5;
+}

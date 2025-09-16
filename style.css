@@ -216,11 +216,11 @@ footer a {
 }
 
 #tab-bases input[type="text"] {
-  width: 180px;
+  width: 128px;
   height: 32px;
   margin-top: 8px;
   font-size: 14px;
-  padding: 6px;
+  padding: 4px;
   text-align: center;
 }
 
@@ -231,8 +231,8 @@ footer a {
 }
 
 .swap-btn button {
-  font-size: 22px;
-  padding: 6px 10px;
+  font-size: 20px;
+  padding: 2px;
   cursor: pointer;
 }
 

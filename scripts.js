@@ -35,6 +35,7 @@ function showTab(tab) {
   document.getElementById("tab-texto").style.display = tab === 'texto' ? 'block' : 'none';
   document.getElementById("tab-translate").style.display = tab === 'translate' ? 'block' : 'none';
   document.getElementById("tab-normalizacao").style.display = tab === 'normalizacao' ? 'block' : 'none';
+  document.getElementById("tab-bases").style.display = tab === 'bases' ? 'block' : 'none';
 
   // Alternar classe 'active' nos botões
   const buttons = document.querySelectorAll('.tab-menu button');
@@ -244,4 +245,63 @@ document.addEventListener("DOMContentLoaded", () => {
       menuContainer.classList.remove("show");
     }
   });
+});
+
+// Conversão de bases numéricas
+function convertBase() {
+  const inputVal = document.getElementById("inputNumber").value.trim();
+  const inputBase = parseInt(document.getElementById("inputBase").value);
+  const outputBase = parseInt(document.getElementById("outputBase").value);
+  const outputField = document.getElementById("outputNumber");
+
+  if (!inputVal) {
+    outputField.value = "";
+    return;
+  }
+
+  try {
+    // Converte para decimal
+    const decimalValue = parseInt(inputVal, inputBase);
+
+    if (isNaN(decimalValue)) {
+      outputField.value = "Valor inválido";
+      return;
+    }
+
+    // Converte para a base desejada
+    outputField.value = decimalValue.toString(outputBase).toUpperCase();
+  } catch (e) {
+    outputField.value = "Erro na conversão";
+  }
+}
+
+function swapBases() {
+  const inputSelect = document.getElementById("inputBase");
+  const outputSelect = document.getElementById("outputBase");
+
+  const temp = inputSelect.value;
+  inputSelect.value = outputSelect.value;
+  outputSelect.value = temp;
+
+  // Troca os valores dos campos também
+  const inputVal = document.getElementById("inputNumber").value;
+  const outputVal = document.getElementById("outputNumber").value;
+
+  document.getElementById("inputNumber").value = outputVal;
+  document.getElementById("outputNumber").value = inputVal;
+
+  convertBase();
+}
+
+// Atualiza automaticamente
+document.addEventListener("DOMContentLoaded", () => {
+  const inputField = document.getElementById("inputNumber");
+  const inputBaseSelect = document.getElementById("inputBase");
+  const outputBaseSelect = document.getElementById("outputBase");
+
+  if (inputField && inputBaseSelect && outputBaseSelect) {
+    inputField.addEventListener("input", convertBase);
+    inputBaseSelect.addEventListener("change", convertBase);
+    outputBaseSelect.addEventListener("change", convertBase);
+  }
 });

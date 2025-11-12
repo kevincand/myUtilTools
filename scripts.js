@@ -305,3 +305,16 @@ document.addEventListener("DOMContentLoaded", () => {
     outputBaseSelect.addEventListener("change", convertBase);
   }
 });
+
+function copiarTexto(id) {
+  const textarea = document.getElementById(id);
+  textarea.select();
+  textarea.setSelectionRange(0, 99999); // para mobile
+  navigator.clipboard.writeText(textarea.value);
+
+  // feedback visual
+  const btn = textarea.parentElement.querySelector('.copy-btn');
+  const original = btn.textContent;
+  btn.textContent = '✅';
+  setTimeout(() => (btn.textContent = original), 1000);
+}

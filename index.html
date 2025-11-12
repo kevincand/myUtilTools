@@ -29,7 +29,10 @@
   </div>
 
   <section id="tab-texto" class="tab-content">
-    <textarea id="texto" placeholder="Digite ou cole seu texto aqui..."></textarea>
+    <div class="textarea-wrapper">
+      <textarea id="texto" placeholder="Digite ou cole seu texto aqui..."></textarea>
+      <button title="Copiar texto" class="copy-btn" onclick="copiarTexto('texto')">📋</button>
+    </div>
     <div class="buttons">
       <button onclick="toUppercase()">MAIÚSCULAS</button>
       <button onclick="toLowercase()">minúsculas</button>
@@ -48,7 +51,10 @@
   <section id="tab-translate" class="tab-content" style="display: none;">
 
     <!-- Codificar ou Decodificar -->
-    <textarea id="translate-input" placeholder="Digite o texto para codificar ou decodificar..."></textarea>
+    <div class="textarea-wrapper">
+      <textarea id="translate-input" placeholder="Digite o texto para codificar ou decodificar..."></textarea>
+      <button title="Copiar texto" class="copy-btn" onclick="copiarTexto('translate-input')">📋</button>
+    </div>
     <div class="buttons">
       <h3 style="margin-bottom: 0.5rem;">Código Morse</h3>
       <button onclick="toMorse()">Texto → Morse</button>
@@ -76,7 +82,10 @@
 
   <section id="tab-normalizacao" class="tab-content" style="display: none;">
   <!-- Normalização de Texto -->
-  <textarea id="editor" placeholder="Cole ou digite seu texto aqui..."></textarea>
+  <div class="textarea-wrapper">
+    <textarea id="editor" placeholder="Cole ou digite seu texto aqui..."></textarea>
+    <button title="Copiar texto" class="copy-btn" onclick="copiarTexto('editor')">📋</button>
+  </div>
   <div class="buttons">
     <h3 style="margin-bottom: 0.5rem;">Fonte</h3>
     <button onclick="setFont('Arial')">Arial</button>
